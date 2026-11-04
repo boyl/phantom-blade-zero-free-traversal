@@ -1,6 +1,6 @@
 # Charm-Free Traversal — 免符穿行
 
-版本：0.1.3-preview。独立 UE4SS 运行时 Mod，通过原生地图向已解锁铃铛穿行时无需消耗穿行符。零符查询会在地图作用范围内放行，不增加真实库存，不覆盖 Map.js。保留原生剧情、战斗、目的地和附近铃铛检查。
+版本：0.1.3。独立 UE4SS 运行时 Mod，通过原生地图向已解锁铃铛穿行时无需消耗穿行符。零符查询会在地图作用范围内放行，不增加真实库存，不覆盖 Map.js。保留原生剧情、战斗、目的地和附近铃铛检查。
 
 ## 前置与安装
 先安装 [UE4SS for Phantom Blade Zero](https://www.nexusmods.com/phantombladezero/mods/5)，遵循该页面适配当前游戏版本的安装说明。本包不包含框架。
