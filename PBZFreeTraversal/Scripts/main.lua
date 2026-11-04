@@ -1,7 +1,20 @@
--- PBZFreeTraversal 0.1.1-preview：独立运行时补丁，不覆盖游戏脚本。
+-- PBZFreeTraversal 0.1.2-preview：独立运行时补丁，不覆盖游戏脚本。
 local PREFIX='[PBZFreeTraversal] '
 local function log(s) print(PREFIX..s..'\n') end
 local healthy=true
+local function confirmationText()
+ local function read(path)
+  local lib=StaticFindObject(path)
+  if not lib or not lib:IsValid()then return nil end
+  local value=lib:GetCurrentLanguage()
+  return type(value)=='string'and value or value:ToString()
+ end
+ local ok,lang=pcall(read,'/Script/EasyLocalizationTool.Default__ELTBlueprintLibrary')
+ if not ok or not lang or lang==''then ok,lang=pcall(read,'/Script/Engine.Default__KismetInternationalizationLibrary')end
+ lang=ok and type(lang)=='string'and lang:lower()or 'en'
+ if lang:match('^zh')then return '确认穿行？本次穿行不消耗穿行符。' end
+ return 'Travel now? No traversal charm will be consumed.'
+end
 local function activeMap()
  local cls=StaticFindObject('/Script/CommonUI.CommonActivatableWidget')
  if not cls or not cls:IsValid() then return false end
@@ -54,7 +67,7 @@ ExecuteWithDelay(12000,function()
   assert(StaticFindObject(dialog):IsValid(),'missing confirmation factory')
   hook(dialog,guarded(function(context,world,header,body,display,id,cost)
    if charm(id) and activeMap()then
-    body:set(FText('确认穿行？本次穿行不消耗穿行符。'))
+    body:set(FText(confirmationText()))
     cost:set(0)
     log('FREE_CONFIRMATION')
    end
@@ -68,5 +81,5 @@ ExecuteWithDelay(12000,function()
   for _,h in ipairs(hooks)do UnregisterHook(h[1],h[2],h[3])end
   log('INCOMPATIBLE '..tostring(err));return
  end
- log('READY 0.1.1-preview; map-scoped; no file override')
+ log('READY 0.1.2-preview; map-scoped; no file override')
 end)
