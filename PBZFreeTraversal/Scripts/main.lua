@@ -1,4 +1,4 @@
--- PBZFreeTraversal 0.1.2-preview：独立运行时补丁，不覆盖游戏脚本。
+-- PBZFreeTraversal 0.1.3-preview：独立运行时补丁，不覆盖游戏脚本。
 local PREFIX='[PBZFreeTraversal] '
 local function log(s) print(PREFIX..s..'\n') end
 local healthy=true
@@ -81,5 +81,5 @@ ExecuteWithDelay(12000,function()
   for _,h in ipairs(hooks)do UnregisterHook(h[1],h[2],h[3])end
   log('INCOMPATIBLE '..tostring(err));return
  end
- log('READY 0.1.2-preview; map-scoped; no file override')
+ log('READY 0.1.3-preview; map-scoped; no file override')
 end)
