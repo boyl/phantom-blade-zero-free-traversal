@@ -14,6 +14,34 @@
 
 入口：`platform/steam/ue4ss/Mods/PBZFreeTraversal/Scripts/main.lua`。游戏程序为 `platform/steam/PBZ.exe`，共享框架加载器位于同目录。
 
+## 安装目录 / Installation layout
+
+Steam“浏览本地文件”打开的 PBZ 目录内应为以下结构。只复制压缩包中的 PBZFreeTraversal 文件夹，不要额外套一层版本号文件夹或重复的同名文件夹。
+
+Inside the PBZ folder opened by Steam's Browse local files, use this layout. Copy the PBZFreeTraversal folder from the archive directly into Mods; do not nest it inside a versioned folder or another PBZFreeTraversal folder.
+
+```text
+PBZ/
+└─ platform/
+   └─ steam/
+      ├─ PBZ.exe
+      ├─ dwmapi.dll                 [UE4SS loader / 前置加载器]
+      └─ ue4ss/
+         ├─ UE4SS.dll               [UE4SS framework / 前置框架]
+         ├─ UE4SS.log               [Generated log / 运行后生成的日志]
+         └─ Mods/
+            └─ PBZFreeTraversal/
+               ├─ enabled.txt      [Included empty file / 随包空文件]
+               └─ Scripts/
+                  └─ main.lua
+```
+
+`enabled.txt` 与 `Scripts` 文件夹同级，内容为空是正常的。无需编辑 mods.txt / mods.json，安装后重新启动游戏。UE4SS 前置文件不包含在本 Mod 包中。
+
+Keep the empty `enabled.txt` beside the `Scripts` folder. No mods.txt / mods.json edits are needed. Restart the game after installation. UE4SS framework files are not included in this mod archive.
+
+若未生效，请检查上述层级，并提供本次启动生成的 `platform/steam/ue4ss/UE4SS.log`、安装目录截图及下载版本号。If the mod does not load, check this layout and provide the current UE4SS.log, an installation-folder screenshot, and the downloaded version number.
+
 ## 升级与卸载
 退出游戏后覆盖本 Mod 文件夹即可升级；升级会重新启用本 Mod。停用时将 PBZFreeTraversal 文件夹移出 Mods，卸载时删除该文件夹，重启生效。若要保留文件夹停用，必须删除 enabled.txt，并将旧版可能留下的 mods.txt / mods.json 同名启用项改为 0 / false。保留共享 UE4SS 和其他 Mod。
 
