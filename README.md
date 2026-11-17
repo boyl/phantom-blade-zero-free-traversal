@@ -1,3 +1,5 @@
+[![Downloads](https://img.shields.io/github/downloads/boyl/phantom-blade-zero-free-traversal/total?label=Downloads&color=blue)](https://github.com/boyl/phantom-blade-zero-free-traversal/releases) [![Stars](https://img.shields.io/github/stars/boyl/phantom-blade-zero-free-traversal?label=Stars)](https://github.com/boyl/phantom-blade-zero-free-traversal/stargazers) [![Latest Release](https://img.shields.io/github/v/release/boyl/phantom-blade-zero-free-traversal?label=Release)](https://github.com/boyl/phantom-blade-zero-free-traversal/releases/latest) [![License](https://img.shields.io/github/license/boyl/phantom-blade-zero-free-traversal?label=License)](https://github.com/boyl/phantom-blade-zero-free-traversal/blob/HEAD/LICENSE)
+
 # Charm-Free Traversal — 免符穿行
 
 版本：0.1.3。独立 UE4SS 运行时 Mod，通过原生地图向已解锁铃铛穿行时无需消耗穿行符。零符查询会在地图作用范围内放行，不增加真实库存，不覆盖 Map.js。保留原生剧情、战斗、目的地和附近铃铛检查。
